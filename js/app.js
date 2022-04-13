@@ -41,7 +41,7 @@ function randomInRange(min, max) {
 }
 
 
-//Add Render Method
+//Add Render Method, updated with help from JB
 
 Cookies.prototype.render = function () {
 
