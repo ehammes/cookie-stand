@@ -14,34 +14,45 @@
 
 let hrs = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm'];
 
-// Add Constructor Functions
+// Add Constructor Function
 
 function Cookies(locationName, minCustomers, maxCustomers, avgCookiesPerCustomer) {
   this.locationName = locationName;
   this.minCustomers = minCustomers;
   this.maxCustomers = maxCustomers;
   this.avgCookiesPerCustomer = avgCookiesPerCustomer;
-  this.getRandomCookiesPerHour = []; // total number of cookies per hour for each cookie stand
+  this.totalCookiesPerHourPerStand = []; // total number of cookies per hour for each cookie stand
   this.generateRandomCookiesPerHour = this.generateRandomCookiesPerHour();
 }
 
+// Method
 Cookies.prototype.generateRandomCookiesPerHour = function () {
   let total = 0;
   for (let i = 0; i < hrs.length; i++) {
     const randomCustomersPerHour = randomInRange(this.minCustomers, this.maxCustomers);
     const cookiesSold = Math.ceil(this.avgCookiesPerCustomer * randomCustomersPerHour);
-    this.getRandomCookiesPerHour[i] = cookiesSold;
+    this.totalCookiesPerHourPerStand[i] = cookiesSold;
     total += cookiesSold;
   }
   this.totalCookiesSold = total;
 };
 
+// Global Functions
 function randomInRange(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+function getHourlyCookiesSumAcrossCookieStands(timeSlot) {
+  let totalHourlyCookiesAcrossCookieStands = 0;
+  for (let i = 0; i < cookieStands.length; i++) {
+    const currentCookieStand = cookieStands[i];
+    const HourlyCookiesPerStand = currentCookieStand.totalCookiesPerHourPerStand[timeSlot];
+    totalHourlyCookiesAcrossCookieStands += HourlyCookiesPerStand;
+  }
+  return totalHourlyCookiesAcrossCookieStands; // loop through each cookie stand and sum up the hourly sales for each stand
+}
 
-//Add Render Method, updated with help from JB
+// Add Render Method, updated with help from JB
 
 Cookies.prototype.render = function () {
 
@@ -53,7 +64,7 @@ Cookies.prototype.render = function () {
 
   for (let i = 0; i < hrs.length; i++) {
     const cookieData = document.createElement('td');
-    cookieData.textContent = this.getRandomCookiesPerHour[i];
+    cookieData.textContent = this.totalCookiesPerHourPerStand[i];
     tr2.appendChild(cookieData);
   }
   const total = document.createElement('td');
@@ -68,6 +79,7 @@ container.appendChild(table);
 const tbody = document.createElement('tbody');
 table.appendChild(tbody);
 
+// Header Row
 function createHeaderRow() {
   // Create and add the header row to the table
   const thead = document.createElement('thead');
@@ -85,33 +97,27 @@ function createHeaderRow() {
   tr.appendChild(dailyLocationTotal);
   dailyLocationTotal.textContent = 'Daily Location Total';
 }
-function getHourlySales(timeSlot){
-  let hourlySales = 0;
-  for (let i=0; i < cookieStands.length; i++){
-    const currentCookieStand = cookieStands[i];
-    hourlySales += currentCookieStand.getRandomCookiesPerHour[timeSlot];
-  }
-  return hourlySales; // loop through each cookie stand and sum up the hourlySales for each
-}
 
+// Footer Row
 function createFooterRow() {
   // Create and add the footer row to the table
-  const tr7 = document.createElement('tr');
-  tbody.appendChild(tr7);
+  const footerRow = document.createElement('tr');
+  tbody.appendChild(footerRow);
   const totals = document.createElement('th');
-  tr7.appendChild(totals);
+  footerRow.appendChild(totals);
   totals.textContent = 'Totals';
 
+  let grandTotal = 0;
   for (let i = 0; i < hrs.length; i++) {
-    const allCookiesEachHour = getHourlySales(i);
+    const allCookiesEachHour = getHourlyCookiesSumAcrossCookieStands(i);
+    grandTotal += allCookiesEachHour;
     const totalsData = document.createElement('td');
     totalsData.textContent = allCookiesEachHour;
-    tr7.appendChild(totalsData);
+    footerRow.appendChild(totalsData);
   }
-
-  const grandTotal = document.createElement('td');
-  grandTotal.textContent = 'grand total goes here'; /// **Need to review this
-  tr7.appendChild(grandTotal);
+  const grandTotalAmt = document.createElement('td');
+  grandTotalAmt.textContent = grandTotal; /// **Need to review this
+  footerRow.appendChild(grandTotalAmt);
 }
 
 const cookieStands = [];
