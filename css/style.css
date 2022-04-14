@@ -1,0 +1,79 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  font-size: 32px;
+  text-align: center;
+  justify-content: left;
+}
+
+#headerNav {
+  background-color: lightgray;
+  display: flex;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 35px;
+}
+
+a {
+  padding-right: 115px
+}
+
+
+#heroImage {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+h2 {
+  font-size: 24px;
+  text-align: center;
+}
+
+#merchandise {
+  display: flex;
+  justify-content: center;
+  margin: 30px;
+}
+
+#baking {
+  display: inline;
+
+}
+
+p {
+  font-size: 12px;
+}
+
+h3 {
+  font-size: 24px;
+  text-align: center;
+}
+
+#bakingImages {
+  display:inline-flex;
+}
+
+footer {
+  background-color: lightgray;
+  text-align: center;
+  margin: 10px;
+  border: 1px solid blue;
+  padding: 5px
+}
+
+#logo {
+
+}
