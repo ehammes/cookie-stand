@@ -32,6 +32,22 @@ ul {
   margin-bottom: 30px;
 }
 
+tbody{
+
+}
+
+th {
+  background-color: rgb(231, 229, 229);
+  font-weight: bold;
+  text-transform: capitalize;
+  border-bottom: 2px solid black;
+  padding: 2px;
+}
+
+td {
+  border: 1px solid black;
+}
+
 
 a {
   padding-right: 115px
