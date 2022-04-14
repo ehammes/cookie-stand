@@ -26,6 +26,13 @@ ul {
   margin-left: 35px;
 }
 
+.SalesData {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+
 a {
   padding-right: 115px
 }
