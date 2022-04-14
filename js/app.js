@@ -44,6 +44,7 @@ function randomInRange(min, max) {
 
 function getHourlyCookiesSumAcrossCookieStands(timeSlot) {
   let totalHourlyCookiesAcrossCookieStands = 0;
+  //console.log(cookieStands);
   for (let i = 0; i < cookieStands.length; i++) {
     const currentCookieStand = cookieStands[i];
     const HourlyCookiesPerStand = currentCookieStand.totalCookiesPerHourPerStand[timeSlot];
@@ -81,6 +82,8 @@ const table = document.createElement('table');
 container.appendChild(table);
 const tbody = document.createElement('tbody');
 table.appendChild(tbody);
+const footer = document.createElement('tfoot');
+table.appendChild(footer);
 
 // Header Row
 function createHeaderRow() {
@@ -105,7 +108,7 @@ function createHeaderRow() {
 function createFooterRow() {
   // Create and add the footer row to the table
   const footerRowElem = document.createElement('tr');
-  tbody.appendChild(footerRowElem);
+  footer.appendChild(footerRowElem);
   const totals = document.createElement('td');
   footerRowElem.appendChild(totals);
   totals.textContent = 'Totals';
@@ -147,6 +150,31 @@ function createCookieStands() {
   cookieStands.push(lima);
 }
 
+// Invoke functions for table
 createHeaderRow();
 createCookieStands();
 createFooterRow();
+
+
+// Create Form Event Handling
+
+function formValue(event) {
+  event.preventDefault();
+  const location = event.target.locationName.value;
+  const minCustomers = parseInt(event.target.minCustomersPerHour.value);
+  const maxCustomers = parseInt(event.target.maxCustomersPerHour.value);
+  const avgCookies = parseFloat(event.target.avgCookiesPerCustomer.value);
+  let newCookieStandData = new CookieStand(location, minCustomers, maxCustomers, avgCookies);
+  console.log(location, minCustomers, maxCustomers, avgCookies);
+
+  // Calculate the data
+  cookieStands.push(newCookieStandData);
+
+  // Render to table
+  newCookieStandData.render();
+  footer.innerHTML = ''; // clearing data in footer
+  createFooterRow();
+}
+
+const cookieStandFormElem = document.getElementById('cookieStandForm');
+cookieStandFormElem.addEventListener('submit', formValue);
