@@ -26,33 +26,30 @@ ul {
   margin-left: 35px;
 }
 
-.SalesData {
+#SalesData {
   display: flex;
   justify-content: center;
   margin-bottom: 30px;
-}
-
-tbody{
-
+  table-layout: auto;
+  width: 100%;
 }
 
 th {
   background-color: rgb(231, 229, 229);
   font-weight: bold;
-  text-transform: capitalize;
-  border-bottom: 2px solid black;
-  padding: 2px;
+  grid-area: auto;
+  padding: 10px;
 }
 
 td {
-  border: 1px solid black;
+  text-align: center;
+  padding: 7px;
+  border: 1px solid lightgray;
 }
-
 
 a {
   padding-right: 115px
 }
-
 
 #heroImage {
   display: flex;
@@ -87,6 +84,33 @@ h3 {
 
 #bakingImages {
   display:inline-flex;
+}
+
+#cookieStandForm {
+  display: flex;
+  justify-content: center;
+}
+
+fieldset {
+  background-color: aliceblue;
+  width: 500px;
+  padding: 20px;
+  border: 2px solid lightgray;
+}
+
+legend {
+  font-weight: bold;
+  background-color: white;
+  border: 2px solid lightgray;
+  padding: 5px;
+}
+
+.formInput {
+  padding: 7px;
+}
+
+#button {
+  padding-left: 600px;
 }
 
 footer {
