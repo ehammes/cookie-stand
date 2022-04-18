@@ -165,7 +165,7 @@ function formValue(event) {
   const maxCustomers = parseInt(event.target.maxCustomersPerHour.value);
   const avgCookies = parseFloat(event.target.avgCookiesPerCustomer.value);
   let newCookieStandData = new CookieStand(location, minCustomers, maxCustomers, avgCookies);
-  console.log(location, minCustomers, maxCustomers, avgCookies);
+  // console.log(location, minCustomers, maxCustomers, avgCookies);
 
   // Calculate the data
   cookieStands.push(newCookieStandData);
