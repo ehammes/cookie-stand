@@ -1,29 +1,70 @@
 * {
   font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Playfair Display', serif;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 h1 {
   text-align: center;
   font-size: 32px;
+  margin: 20px;
+}
+
+h2 {
+  font-size: 24px;
   text-align: center;
-  justify-content: left;
+  margin: 40px 0px 25px 0px;
+}
+
+h3 {
+  font-size: 24px;
+  text-align: center;
 }
 
 #headerNav {
-  background-color: lightgray;
-  display: flex;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  justify-content: center;
+  background-color: rgb(232, 232, 232);
+  border: 2px solid gray;
+  text-align: center;
+  padding: 20px;
+}
+
+#heroContent {
+  text-align: center;
   margin-bottom: 30px;
 }
 
-ul {
-  list-style-type: none;
+#mainContent {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-left: 35px;
+}
+
+img {
+  border: 1px solid gray;
+}
+
+#merchandise {
+  text-align: center;
+  margin: 15px;
+  padding: 15px;
+  border: 2px solid gray;
+  background-color: rgb(255, 210, 192);
+}
+
+#baking {
+  text-align: center;
+  margin: 15px;
+  padding: 0px 15px 40px 15px;
+  border: 2px solid gray;
+  background-color: rgb(255, 210, 192);
+}
+
+p {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 14px;
+  color: rgb(1, 1, 92);
+}
+
+body {
+  background-color: rgb(255, 255, 233);
 }
 
 #SalesData {
@@ -35,55 +76,20 @@ ul {
 }
 
 th {
-  background-color: rgb(231, 229, 229);
+  background-color: lightgray;
   font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(1, 73, 73);
   grid-area: auto;
   padding: 10px;
 }
 
 td {
   text-align: center;
-  padding: 7px;
-  border: 1px solid lightgray;
-}
-
-a {
-  padding-right: 115px
-}
-
-#heroImage {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 30px;
-}
-
-h2 {
-  font-size: 24px;
-  text-align: center;
-}
-
-#merchandise {
-  display: flex;
-  justify-content: center;
-  margin: 30px;
-}
-
-#baking {
-  display: inline;
-
-}
-
-p {
-  font-size: 12px;
-}
-
-h3 {
-  font-size: 24px;
-  text-align: center;
-}
-
-#bakingImages {
-  display:inline-flex;
+  padding: 5px;
+  border: 2px solid lightgray;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(1, 73, 73);
 }
 
 #cookieStandForm {
@@ -92,9 +98,8 @@ h3 {
 }
 
 fieldset {
-  background-color: aliceblue;
-  width: 500px;
-  padding: 20px;
+  background-color: rgb(170, 198, 211);
+  padding: 15px;
   border: 2px solid lightgray;
 }
 
@@ -110,17 +115,19 @@ legend {
 }
 
 #button {
-  padding-left: 600px;
+  padding-left: 500px;
+}
+
+#contact {
+  text-align: center;
 }
 
 footer {
-  background-color: lightgray;
   text-align: center;
-  margin: 10px;
-  border: 1px solid blue;
-  padding: 5px
+  margin: 35px 5px 5px 5px;
 }
 
-#logo {
-
+h4 {
+  font-size: 8px;
 }
+
